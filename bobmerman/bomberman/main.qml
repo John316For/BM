@@ -13,10 +13,10 @@ ApplicationWindow {
     visible: true
     width: 755
     height: 500
-    maximumHeight: height
-    maximumWidth: width
-    minimumHeight: height
-    minimumWidth: width
+//    maximumHeight: height
+//    maximumWidth: width
+//    minimumHeight: height
+//    minimumWidth: width
     title: qsTr("BomberMan")
 
     MainForm {

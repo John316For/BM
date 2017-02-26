@@ -9,7 +9,8 @@ Rectangle{
     id: mainMenu
     height: 500
     width: 755
-    anchors.fill: parent
+    //anchors.fill: parent
+
     Image {
         id: backImage
         anchors.fill: parent
