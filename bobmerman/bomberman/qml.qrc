@@ -29,5 +29,6 @@
         <file>field.cpp</file>
         <file>field.h</file>
         <file>main.cpp</file>
+        <file>Scene.js</file>
     </qresource>
 </RCC>

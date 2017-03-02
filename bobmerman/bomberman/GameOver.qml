@@ -10,8 +10,8 @@ Rectangle {
     id: gameOverWindow
     color: "#ffffff"
     anchors.fill: parent
-    width: 755
-    height: 500
+    width:  parent.width
+    height: parent.height
 
     ColumnLayout {
         id: columnLayout1

@@ -5,40 +5,25 @@ import QtQuick.Layouts 1.2
 import QtQml 2.2
 import QtQuick.Controls.Styles 1.4
 import "./"
+import "Scene.js" as Scene
 
+Item{
 
 Rectangle {
-Item {
-     var scenelevelone = [[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
-        [4,5,9,9,9,3,9,9,2,1,2,9,9,9,9,2,9,5,4],
-        [4,9,4,9,4,2,4,9,4,9,4,9,4,9,4,9,4,9,4],
-        [4,2,2,9,9,9,9,2,9,9,2,9,9,9,9,9,2,9,4],
-        [4,9,4,9,4,2,4,9,4,2,4,9,4,9,4,9,4,9,4],
-        [4,9,9,2,9,9,9,9,9,5,9,2,9,9,2,2,9,2,4],
-        [4,9,4,9,4,9,4,2,4,9,4,9,4,9,4,9,4,9,4],
-        [4,2,9,2,9,9,9,9,9,2,9,9,9,9,9,9,2,9,4],
-        [4,9,4,9,4,2,4,9,4,9,4,9,4,9,4,2,4,9,4],
-        [4,5,9,2,9,9,9,9,9,2,9,9,9,2,9,2,9,5,4],
-        [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]]
-        function getfieldinfo(i,j){
-            return scenelevelone[1][1];
-        }
-            function getcolor(i){
-               // var
-            }
-}
 
-
-
-        Repeater {
-            model: 4
+    Repeater {
+            id:first
+            model: 209
             Rectangle{
-                width: 5
-                height: 5
-                color: "green"
-                Text { text: "I'm item " + index }
+                id:cage
+                   x: cage.width*(index%19)
+                   y: cage.height*Math.floor((index)/19)
+                   width: 20
+                   height: 20
+                   color: Scene.getcolor(index)
+                   //Text { text: "x" + cage.x +" y"+cage.y}
+                }
             }
-        }
 
     id: fieldWindow
     width: parent.width // 735
@@ -70,4 +55,6 @@ Item {
             main.setVisible(5)
         }
     }
+}
+
 }
