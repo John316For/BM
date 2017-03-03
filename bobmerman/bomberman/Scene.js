@@ -11,6 +11,58 @@ var scenelevelone = [[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
    [4,5,9,2,9,9,9,9,9,2,9,9,9,2,9,2,9,5,4],
    [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]]
 
+var xposper = 9;
+var yposper = 1;
+function permakestep (x,y) {
+    //Получаем инфу о клетке куда хоти идти
+     var cageinfo = getcageinfo(xposper+x,yposper+y);
+    switch (cageinfo) {
+    case 1:
+        console.log("Персонаж ваш там");
+        return 0
+        break
+    case 2 :
+        console.log("Коробка");
+        return 0
+         break
+    case 3 :
+        console.log("Коробка и дверь");
+        return 0
+         break
+    case 4 :
+        console.log("Стена");
+        return 0
+         break
+    case 5 :
+        console.log("Враг");
+        return 0
+         break
+    case 6 :
+        console.log("Бомба")
+        return 0
+         break
+    case 7 :
+        console.log("Взрывная волнаааа")
+        return 0
+         break
+    case 8 :
+        console.log("Дверьь")
+        return 0
+         break
+    case 9 :
+        console.log("Пустоо шагаю");
+        //Обнуляем значение клетки
+        scenelevelone[xposper][yposper] = 9;
+        //двигаем персонажа
+        xposper += x;
+        yposper += y;
+         scenelevelone[xposper][yposper] = 1;
+        return ""
+         break
+     default: return ""
+    }
+}
+
 //9 - пустая клетка;
 //1 - главный герой;
 //2 - коробка;
@@ -25,6 +77,10 @@ function getfieldinfo(index){
     var y = (index%19);
     return scenelevelone[x][y];
 }
+function getcageinfo(x,y) {
+    return scenelevelone[x][y];
+}
+
 function getpicture(index) {
      var info = getfieldinfo(index);
     switch(info) {

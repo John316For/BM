@@ -10,6 +10,13 @@ import "Scene.js" as Scene
 Item{
 
 Rectangle {
+    id: fieldWindow
+    width: parent.width // 735
+    height: parent.height //500
+    color: "#b6b2b2"
+    //property alias backImage: backImage
+    anchors.fill: parent
+
 
     Repeater {
             id:first
@@ -18,8 +25,8 @@ Rectangle {
                 id:cage
                    x: cage.width*(index%19)
                    y: cage.height*Math.floor((index)/19)
-                   width: 25
-                   height: 25
+                   width: 30
+                   height: 30
                    color: Scene.getcolor(index)
                    Image {
                        anchors.fill: parent
@@ -28,20 +35,66 @@ Rectangle {
                    }
                    //Text { text: "x" + cage.x +" y"+cage.y}
                 }
-            }
 
-    id: fieldWindow
-    width: parent.width // 735
-    height: parent.height //500
-    color: "#b6b2b2"
-    //property alias backImage: backImage
-    anchors.fill: parent
+            }
+//    MouseArea {
+//     anchors.fill: parent
+    Item {
+        anchors.fill: parent
+        id: keyHandler
+        focus: true
+     Keys.onPressed:  {
+     if (event.isAutoRepeat) {
+             return;
+         }
+
+         switch (event.key) {
+         case Qt.Key_A:
+             console.log("Key_Left pressed")
+            Scene.permakestep(-1,0);
+             break;
+         case Qt.Key_D:
+             console.log("Key_Right pressed")
+            Scene.permakestep(1,0);
+             break;
+         case Qt.Key_W:
+             console.log("Key_UP pressed")
+            Scene.permakestep(0,-1);
+             break;
+         case Qt.Key_S:
+             console.log("Key_Down pressed")
+            Scene.permakestep(0,1);
+             break;
+         }
+     }
+
+     Keys.onReleased: {
+         if (event.isAutoRepeat) {
+             return;
+         }
+         switch (event.key) {
+         case Qt.Key_Left:
+
+             break;
+         case Qt.Key_Right:
+
+             break;
+         case Qt.Key_Up:
+
+             break;
+         case Qt.Key_Down:
+
+             break;
+         }
+     }
+    }
+
       Button {
         id: pauseButton
-       // x: 647
-        //y: 27
-        anchors.right: parent.right
-        anchors.margins: 10
+        x: 647
+        y: 27
+        //anchors.left: parent.horizontalCenter
+        //anchors.margins: 10
         text: qsTr("Пауза")
         onClicked: {
             console.log("pause click")
@@ -52,11 +105,11 @@ Rectangle {
 
     Button {
         id: gameOverButton
-       // x: 45
-        //y: 34
+        x: 647
+        y: 34
         anchors.top: pauseButton.bottom
-        anchors.right: parent.right
-        anchors.margins: 10
+        //anchors.left: parent.horizontalCenter
+        //anchors.margins: 10
         text: qsTr("GameOver")
         onClicked: {
             console.log("gameover click")
