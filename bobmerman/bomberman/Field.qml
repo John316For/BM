@@ -18,9 +18,14 @@ Rectangle {
                 id:cage
                    x: cage.width*(index%19)
                    y: cage.height*Math.floor((index)/19)
-                   width: 20
-                   height: 20
+                   width: 25
+                   height: 25
                    color: Scene.getcolor(index)
+                   Image {
+                       anchors.fill: parent
+                       //fillMode: Image.Tile
+                       source: Scene.getpicture(index)
+                   }
                    //Text { text: "x" + cage.x +" y"+cage.y}
                 }
             }
@@ -33,8 +38,10 @@ Rectangle {
     anchors.fill: parent
       Button {
         id: pauseButton
-        x: 647
-        y: 27
+       // x: 647
+        //y: 27
+        anchors.right: parent.right
+        anchors.margins: 10
         text: qsTr("Пауза")
         onClicked: {
             console.log("pause click")
@@ -45,8 +52,11 @@ Rectangle {
 
     Button {
         id: gameOverButton
-        x: 45
-        y: 34
+       // x: 45
+        //y: 34
+        anchors.top: pauseButton.bottom
+        anchors.right: parent.right
+        anchors.margins: 10
         text: qsTr("GameOver")
         onClicked: {
             console.log("gameover click")

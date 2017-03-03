@@ -25,6 +25,40 @@ function getfieldinfo(index){
     var y = (index%19);
     return scenelevelone[x][y];
 }
+function getpicture(index) {
+     var info = getfieldinfo(index);
+    switch(info) {
+    case 1:
+        return "im/mario.png"
+        break
+    case 2 :
+        return "im/box.png"
+         break
+    case 3 :
+        return "im/box.png"
+         break
+    case 4 :
+        return "im/wall.png"
+         break
+    case 5 :
+        return "im/ghost.png"
+         break
+    case 6 :
+        return "im/bomb.png"
+         break
+    case 7 :
+        return "im/buum.png"
+         break
+    case 8 :
+        return "im/d1.png"
+         break
+    case 9 :
+        return ""
+         break
+     default: return ""
+    }
+
+}
     function getcolor(index){
         var info = getfieldinfo(index);
        switch(info) {
