@@ -72,8 +72,10 @@ Item {
 //        }
         switch (event.key) {
                case Qt.Key_Left:
+                   //console.log("Вариант куда я хочу двигаться"+Scene.getcageinfo(Scene.xposper-1,Scene.yposper));
+                   console.log("Вариант обратный"+Scene.getcageinfo(Scene.yposper,Scene.xposper-1));
                    r.jumpTo("left")
-                   switch (Scene.getcageinfo(Scene.xposer-1,Scene.yposper)){
+                   switch (Scene.getcageinfo(Scene.yposper,Scene.xposper-1)){
                    case 2 :
                        console.log("Коробка");
                        return
@@ -86,12 +88,16 @@ Item {
                        console.log("Стена");
                        return
                         break
+                   default:
+                       console
                    }
                    Scene.xposper--;
                    break
                case Qt.Key_Right:
+                   console.log(Scene.xposper+1,Scene.yposper);
+                 // console.log("Вариант обратный"+Scene.getcageinfo(Scene.yposper,Scene.xposper-1));
                    r.jumpTo("right")
-                   switch (Scene.getcageinfo(Scene.xposer+1,Scene.yposper)){
+                   switch (Scene.getcageinfo(Scene.yposper,Scene.xposper+1)){
                    case 2 :
                        console.log("Коробка");
                        return
@@ -108,8 +114,10 @@ Item {
                    Scene.xposper++;
                    break
                case Qt.Key_Down:
+                    console.log(Scene.xposper,Scene.yposper+1);
+                  //console.log("Вариант обратный"+Scene.getcageinfo(Scene.yposper,Scene.xposper-1));
                    r.jumpTo("down")
-                   switch (Scene.getcageinfo(Scene.xposer,Scene.yposper+1)){
+                   switch (Scene.getcageinfo(Scene.yposper+1,Scene.xposper)){
                    case 2 :
                        console.log("Коробка");
                        return
@@ -126,8 +134,9 @@ Item {
                    Scene.yposper++;
                    break
                case Qt.Key_Up:
+                    console.log(Scene.xposper,Scene.yposper-1);
                    r.jumpTo("up")
-                   switch (Scene.getcageinfo(Scene.xposer,Scene.yposper-1)){
+                   switch (Scene.getcageinfo(Scene.yposper-1,Scene.xposper)){
                    case 2 :
                        console.log("Коробка");
                        return

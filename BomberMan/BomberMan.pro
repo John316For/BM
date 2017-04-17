@@ -51,4 +51,5 @@ DISTFILES += \
     qml/pages/Field.qml \
     qml/pages/Mario.qml \
     qml/pages/Stone.qml \
-    qml/pages/Actor.qml
+    qml/pages/Actor.qml \
+    qml/pages/Box.qml

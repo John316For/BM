@@ -26,16 +26,23 @@ QtObject {
     function generatefield() {
         // Создаем компонент на основе QML-описания
         var stonecomponent = Qt.createComponent("Stone.qml")
+        var boxcomponent = Qt.createComponent("Box.qml")
         for (var i = 0; i < 11; i++) {
             for (var j = 0; j < 19; j++) {
                 //var info = Scene.getcageinfo(i)
                 switch (Scene.getcageinfo(i,j)) {
-//                case 2:
-//                    return "im/box.png"
-//                    break
-//                case 3:
-//                    return "im/box.png"
-//                    break
+                case 2:
+                    var x = j*50;
+                    var y = i*50;
+                    var bx = boxcomponent.createObject(gameBoard,{"x": x,"y": y,"z": 0});
+                    boxes.push(bx);
+                    break
+                case 3:
+                    var x = j*50;
+                    var y = i*50;
+                    var bx = boxcomponent.createObject(gameBoard,{"x": x,"y": y,"z": 0});
+                    boxes.push(bx);
+                    break
                 case 4:
                     var x = j*50;
                     var y = i*50;

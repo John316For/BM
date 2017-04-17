@@ -6,9 +6,11 @@ import "Scene.js" as Scene
 Page {
     id: page
     allowedOrientations: Orientation.Landscape
+
     Item{
         id: board
         anchors.fill: parent
+
         Image {
             source: "image/back.jpg"
             fillMode: Image.Tile
@@ -16,13 +18,16 @@ Page {
             anchors.fill: parent
             z: -1
         }
+
         Mario {
+            id: mario
             x: Scene.getMarioxpos()*50
             y: Scene.getMarioypos()*50
             z:1
             focus: true
             //onXChanged: if(Field.processCollisions(x, y))
         }
+
         Field {
             id: fieldMeneger
             gameBoard: board
@@ -174,18 +179,18 @@ Page {
 
 
 
-          Actor {
-              id: actor
+//          Actor {
+//              id: actor
 
-             x: parent.width / 2 - width / 2
-             y: parent.height / 2 - height / 2
-              z: 1
+//             x: parent.width / 2 - width / 2
+//             y: parent.height / 2 - height / 2
+//              z: 1
 
-              focus: true
+//              focus: true
 
 
-        ///////TAYA
+//        ///////TAYA
 
-    }
+//    }
 }
 }
