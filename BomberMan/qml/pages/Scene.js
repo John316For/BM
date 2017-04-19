@@ -11,6 +11,7 @@ var scenelevelone = [[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
    [4,5,9,2,9,9,9,9,9,2,9,9,9,2,9,2,9,5,4],
    [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]]
 
+var cagesize = 40;
 var xposper = 9;
 var yposper = 1;
 function getMarioxpos(){
@@ -18,6 +19,19 @@ function getMarioxpos(){
 }
 function getMarioypos(){
     return  yposper;
+}
+
+//====================================
+//Функция установки значения в клетку
+//====================================
+function setcageinfo(x,y,info) {
+    if (x < 0 || x > 11) {
+        return -1;
+    }
+    if (y < 0 || y > 19) {
+        return -1;
+    }
+    scenelevelone[x][y] = info;
 }
 
 function permakestep (x,y) {

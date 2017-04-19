@@ -21,8 +21,8 @@ Page {
 
         Mario {
             id: mario
-            x: Scene.getMarioxpos()*50
-            y: Scene.getMarioypos()*50
+            x: Scene.getMarioxpos()*Scene.cagesize
+            y: Scene.getMarioypos()*Scene.cagesize
             z:1
             focus: true
             //onXChanged: if(Field.processCollisions(x, y))
@@ -31,10 +31,10 @@ Page {
         Field {
             id: fieldMeneger
             gameBoard: board
-            stoneWidth: 50
-            stoneHeight: 50
-            boxWidth: 50
-            boxHeight: 50
+            stoneWidth: Scene.cagesize
+            stoneHeight: Scene.cagesize
+            boxWidth: Scene.cagesize
+            boxHeight: Scene.cagesize
             // Количество генерируемых неигровых объектов
             Component.onCompleted: generatefield()
 
@@ -51,16 +51,13 @@ Page {
              y:400
              x:50
              z:1
-
-
-
             Image {
                 id: joystick
 
                 property real angle : 0
                 property real distance : 0
 
-                source: "image/background1.jpg"
+                source: "image/background1.png"
                 anchors.centerIn: parent
 
                 ParallelAnimation {
@@ -86,18 +83,36 @@ Page {
 
                     anchors.fill: parent
 
-                    /*onPressed: {
-                        actorMario.x=actorMario.x+100
-                        returnAnimation.stop();
-                    }
-                    */
-                    onPressAndHold: {
+                    onPressed: {
                         actorMario.x=actorMario.x+50
+                        returnAnimation.stop();
+                    console.log("mcx: "+mcx+" mcy: "+mcy);
+                    }
+
+                    onPressAndHold: {
+                        if (fingerInBounds) {
+                            thumb.anchors.horizontalCenterOffset = mcx
+                            thumb.anchors.verticalCenterOffset = mcy
+                        } else {
+                            var angle = Math.atan2(mcy, mcx)
+                            thumb.anchors.horizontalCenterOffset = Math.cos(angle) * distanceBound
+                            thumb.anchors.verticalCenterOffset = Math.sin(angle) * distanceBound
+                        }
+                        if(angle*180/Math.PI > -45 && angle*180/Math.PI <45) actorMario.x= actorMario.x+10
+                        if(angle*180/Math.PI >-180 && angle*180/Math.PI < -90) actorMario.y = actorMario.y-10
+                          if(angle*180/Math.PI >=45 && angle*180/Math.PI <=135) actorMario.y= actorMario.y+10
+                           if(angle*180/Math.PI <= -135 || angle*180/Math.PI > 135) actorMario.x= actorMario.x-10
+
+
+                        actorMario.x=actorMario.x+50
+                        console.log("mcx: "+mcx+" mcy: "+mcy);
                         returnAnimation.stop();
                     }
                     onReleased: {
+                         console.log("RELEAS");
+                        mcx=0;
+                        mcy=0;
                         returnAnimation.restart()
-
                     }
 
                     onPositionChanged: {
@@ -117,7 +132,7 @@ Page {
                           if(angle*180/Math.PI >=45 && angle*180/Math.PI <=135) actorMario.y= actorMario.y+10
                            if(angle*180/Math.PI <= -135 || angle*180/Math.PI > 135) actorMario.x= actorMario.x-10
 
-                        console.log(angle*180/Math.PI)
+                        //console.log(angle*180/Math.PI)
 
 
 
@@ -135,7 +150,7 @@ Page {
 
                 Image {
                     id: thumb
-                    source: "image/finger1.jpg"
+                    source: "image/finger1.png"
                     anchors.centerIn: parent
                 }
 

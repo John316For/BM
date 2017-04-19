@@ -1,13 +1,14 @@
 import QtQuick 2.0
+import "Scene.js" as Scene
 
 
 Item {
-    width: 50
-    height: 50
+    width: Scene.cagesize
+    height: Scene.cagesize
     SpriteSequence {
-        id: stone
-        width: 50
-        height: 50
+        id: box
+        width: Scene.cagesize
+        height: Scene.cagesize
         interpolate: false
 
         Sprite{

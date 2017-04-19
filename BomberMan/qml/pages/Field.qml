@@ -32,20 +32,20 @@ QtObject {
                 //var info = Scene.getcageinfo(i)
                 switch (Scene.getcageinfo(i,j)) {
                 case 2:
-                    var x = j*50;
-                    var y = i*50;
+                    var x = j*Scene.cagesize;
+                    var y = i*Scene.cagesize;
                     var bx = boxcomponent.createObject(gameBoard,{"x": x,"y": y,"z": 0});
                     boxes.push(bx);
                     break
                 case 3:
-                    var x = j*50;
-                    var y = i*50;
+                    var x = j*Scene.cagesize;
+                    var y = i*Scene.cagesize;
                     var bx = boxcomponent.createObject(gameBoard,{"x": x,"y": y,"z": 0});
                     boxes.push(bx);
                     break
                 case 4:
-                    var x = j*50;
-                    var y = i*50;
+                    var x = j*Scene.cagesize;
+                    var y = i*Scene.cagesize;
                     var st = stonecomponent.createObject(gameBoard, {"x": x, "y": y, "z": 0});
                     stones.push(st);
                     break
