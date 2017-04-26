@@ -19,6 +19,7 @@ Page {
             anchors.fill: parent
             z: -1
         }
+
         //natalia
         // кнопка устновки бомбы
         Rectangle {
@@ -39,7 +40,7 @@ Page {
             }
             Image {
                 id: setBombPict
-                source: "image/bomb.jpg"
+                source: "image/bomb.png"
                 width: parent.width
                 height: parent.width
             }
@@ -52,6 +53,9 @@ Page {
             focus: false
         }
         //natalias
+
+        //+++++++++++++++++++++++++++++++++++++++++++++++++++
+        //+++++++++++++++++++++Марио и счетчик
         Mario {
             id: mario
             x: Scene.getMarioxpos() * Scene.cagesize
@@ -61,7 +65,14 @@ Page {
             onXChanged: console.log("mario x", x)
             //onXChanged: if(Field.processCollisions(x, y))
         }
+        Lfpoint {
+            id:lifepoint
+            x:10*Scene.cagesize
+            y:1/3*Scene.cagesize
+            z:3
+        }
 
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++
         Field {
             id: fieldMeneger
             gameBoard: board

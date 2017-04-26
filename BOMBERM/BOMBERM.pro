@@ -47,4 +47,5 @@ DISTFILES += \
     qml/pages/Mario.qml \
     qml/pages/MenuPage.qml \
     qml/pages/Stone.qml \
-    qml/pages/Bomb.qml
+    qml/pages/Bomb.qml \
+    qml/pages/Lfpoint.qml

@@ -13,7 +13,7 @@ Item {
 
         Sprite{
             name: "bomb"
-            source: "image/bomb.jpg"
+            source: "image/bomb.png"
         }
     }
     //номер бомбы в массиве
@@ -45,7 +45,7 @@ Item {
             console.log("BUUM bomb")
             //проверка, задело ли марио
             if(Scene.killMario()) {
-                mario.dead()
+                mario.lesslife();
             }
             //проверка, задело ли коробки и еще что
             amountCrashedBoxes =Scene.detonate()

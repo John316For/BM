@@ -9,7 +9,7 @@ Item {
 
     property int xVelocity: 0
     property int yVelocity: 0
-
+    property int lifecount: 3
     SpriteSequence {
         id: r
         width: Scene.cagesize
@@ -67,6 +67,19 @@ Item {
         Scene.setcageinfo(Scene.getMarioxpos(),Scene.getMarioypos(),freeCage)
         console.log("kill")
     }
+
+    //Функция уменьшения жизни
+    function lesslife(){
+        if(lifecount > 0) {
+            lifecount--;
+            console.log("lifepoints: "+lifecount);
+            lifepoint.width = Scene.cagesize*lifecount;
+            lifepoint.changesost(lifecount);
+        } else {
+            dead();
+        }
+    }
+
     //
     Keys.onPressed: {
 //        if (event.isAutoRepeat) {
