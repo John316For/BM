@@ -249,6 +249,32 @@ Page {
                 source: "image/en4.jpg"
             }
         }
+        //Katya
+
+               Button {
+               text: "Пауза"
+               color: "white"
+               highlightBackgroundColor: "black"
+               highlightColor: "black"
+               opacity: 1.0
+              // capacity: 1
+               //anchors.
+              // anchors.left: parent.left
+               //anchors.fill: update
+               x:-30
+               y:-70
+              // anchors {
+                //   left: parent.left
+                  // leftMargin: Theme.horizontalPageMargin
+                   //right: parent.right
+                  // rightMargin: Theme.horizontalPageMargin
+                   //verticalCenter: parent.verticalCenter
+               //}
+               onClicked: {
+               pageStack.push(Qt.resolvedUrl("PauseMenu.qml"))
+               }
+           }
+
 
         //          Actor {
         //              id: actor
@@ -263,4 +289,6 @@ Page {
 
         //    }
     }
+
 }
+
