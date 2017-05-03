@@ -248,7 +248,7 @@ Page {
 
                 source: "image/en4.jpg"
             }
-        }
+       // }
         //Katya
 
                Button {
@@ -291,4 +291,6 @@ Page {
     }
 
 }
+}
+
 

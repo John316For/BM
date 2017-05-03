@@ -49,4 +49,7 @@ DISTFILES += \
     qml/pages/Stone.qml \
     qml/pages/Bomb.qml \
     qml/pages/Lfpoint.qml \
-    qml/pages/PauseMenu.qml
+    qml/pages/PauseMenu.qml \
+    qml/pages/GameOver.qml \
+    qml/pages/image/pause.jpg \
+    qml/pages/image/0fgj.jpg

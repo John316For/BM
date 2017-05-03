@@ -36,7 +36,7 @@ Page {
         Label {
             text: "Пауза"
             //truncationMode: TruncationMode.Fade
-            color: "blue" //Theme.highlightColor
+            color: "black"//Theme.highlightColor
             x:200
             y:50
             /*anchors {
@@ -54,7 +54,7 @@ Page {
             //height: page.height
             width: parent.width
             height: parent.height
-            source: "pause.jpg"
+            source: "image/pause.jpg"
         }
 
         Column {
@@ -65,8 +65,8 @@ Page {
 
             Button {
                 text: "Возобновить игру"
-                color: "blue"
-                highlightBackgroundColor: "blue"
+                color: "black"
+                highlightBackgroundColor: "black"
                 highlightColor: "black"
                 opacity: 1
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -76,8 +76,8 @@ Page {
             }
             Button {
                 text: "Выйти в главное меню"
-                color: "blue"
-                highlightBackgroundColor: "blue"
+                color: "black"
+                highlightBackgroundColor: "black"
                 highlightColor: "black"
                 opacity: 1
                 anchors.horizontalCenter: parent.horizontalCenter

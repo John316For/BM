@@ -77,6 +77,7 @@ Item {
             lifepoint.changesost(lifecount);
         } else {
             dead();
+             pageStack.push(Qt.resolvedUrl("GameOver.qml"))
         }
     }
 

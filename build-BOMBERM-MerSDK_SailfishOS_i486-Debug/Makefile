@@ -61,6 +61,9 @@ DIST          = ../BOMBERM/qml/pages/Scene.js \
 		../BOMBERM/qml/pages/Bomb.qml \
 		../BOMBERM/qml/pages/Lfpoint.qml \
 		../BOMBERM/qml/pages/PauseMenu.qml \
+		../BOMBERM/qml/pages/GameOver.qml \
+		../BOMBERM/qml/pages/image/pause.jpg \
+		../BOMBERM/qml/pages/image/0fgj.jpg \
 		/usr/share/qt5/mkspecs/features/spec_pre.prf \
 		/usr/share/qt5/mkspecs/common/unix.conf \
 		/usr/share/qt5/mkspecs/common/linux.conf \
