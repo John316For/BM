@@ -52,4 +52,7 @@ DISTFILES += \
     qml/pages/PauseMenu.qml \
     qml/pages/GameOver.qml \
     qml/pages/image/pause.jpg \
-    qml/pages/image/0fgj.jpg
+    qml/pages/image/0fgj.jpg \
+    qml/pages/Enemy.qml \
+    qml/pages/EnemyManager.qml \
+    qml/pages/Mario1.qml

@@ -80,8 +80,120 @@ Item {
              pageStack.push(Qt.resolvedUrl("GameOver.qml"))
         }
     }
+    //Функции хода персонажа
+    function gotoLeft() {
 
-    //
+        //console.log("Вариант куда я хочу двигаться"+Scene.getcageinfo(Scene.xposper-1,Scene.yposper));
+        console.log("Вариант обратный"+Scene.getcageinfo(Scene.yposper,Scene.xposper-1));
+        r.jumpTo("left")
+        switch (Scene.getcageinfo(Scene.yposper,Scene.xposper-1)){
+        case 2 :
+            console.log("Коробка");
+            return
+             break
+        case 3 :
+            console.log("Коробка и дверь");
+            return
+             break
+        case 4 :
+            console.log("Стена");
+            return
+             break
+        default:
+            console.log("Что-то");
+        }
+        //Устанавливаю значение пустой клетки в той что был персонаж и новое значение
+        Scene.setcageinfo(Scene.yposper,Scene.xposper-1,1)
+        console.log("Новая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper-1));
+        Scene.setcageinfo(Scene.yposper,Scene.xposper,9);
+        console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
+
+        xVelocity--;
+        Scene.xposper--;
+    }
+
+    function gotoRight() {
+        //console.log(Scene.xposper+1,Scene.yposper);
+        r.jumpTo("right")
+        switch (Scene.getcageinfo(Scene.yposper,Scene.xposper+1)){
+        case 2 :
+            console.log("Коробка");
+            return
+             break
+        case 3 :
+            console.log("Коробка и дверь");
+            return
+             break
+        case 4 :
+            console.log("Стена");
+            return
+             break
+        }
+        //Устанавливаю значение пустой клетки в той что был персонаж и новое значение
+        Scene.setcageinfo(Scene.yposper,Scene.xposper+1,1)
+        //console.log("Новая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper+1));
+        Scene.setcageinfo(Scene.yposper,Scene.xposper,9);
+        //console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
+        xVelocity++;
+        Scene.xposper++;
+    }
+
+    function gotoUp() {
+       console.log(Scene.xposper,Scene.yposper-1);
+       r.jumpTo("up")
+       switch (Scene.getcageinfo(Scene.yposper-1,Scene.xposper)){
+       case 2 :
+           console.log("Коробка");
+           return
+            break
+       case 3 :
+           console.log("Коробка и дверь");
+           return
+            break
+       case 4 :
+           console.log("Стена");
+           return
+            break
+       }
+       Scene.setcageinfo(Scene.yposper-1,Scene.xposper,1)
+       //console.log("Новая клетка:"+Scene.getcageinfo(Scene.yposper-1,Scene.xposper));
+       Scene.setcageinfo(Scene.yposper,Scene.xposper,9);
+       //console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
+       yVelocity--;
+       Scene.yposper--;
+    }
+
+    function gotoDown() {
+        console.log(Scene.xposper,Scene.yposper+1);
+        r.jumpTo("down")
+       switch (Scene.getcageinfo(Scene.yposper+1,Scene.xposper)){
+       case 2 :
+           console.log("Коробка");
+           return
+            break
+       case 3 :
+           console.log("Коробка и дверь");
+           return
+            break
+       case 4 :
+           console.log("Стена");
+           return
+            break
+       }
+       //Устанавливаю значение пустой клетки в той что был персонаж и новое значение
+       Scene.setcageinfo(Scene.yposper+1,Scene.xposper,1)
+       //console.log("Новая клетка:"+Scene.getcageinfo(Scene.yposper+1,Scene.xposper));
+       Scene.setcageinfo(Scene.yposper,Scene.xposper,9);
+       //console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
+       yVelocity++;
+       Scene.yposper++;
+    }
+    function rest() {
+        xVelocity = 0;
+        yVelocity = 0;
+        r.jumpTo("rest")
+    }
+
     Keys.onPressed: {
 //        if (event.isAutoRepeat) {
 //            return
@@ -103,116 +215,26 @@ Item {
 //        }
         switch (event.key) {
                case Qt.Key_Left:
-                   //console.log("Вариант куда я хочу двигаться"+Scene.getcageinfo(Scene.xposper-1,Scene.yposper));
-                   console.log("Вариант обратный"+Scene.getcageinfo(Scene.yposper,Scene.xposper-1));
-                   r.jumpTo("left")
-                   switch (Scene.getcageinfo(Scene.yposper,Scene.xposper-1)){
-                   case 2 :
-                       console.log("Коробка");
-                       return
-                        break
-                   case 3 :
-                       console.log("Коробка и дверь");
-                       return
-                        break
-                   case 4 :
-                       console.log("Стена");
-                       return
-                        break
-                   default:
-                       console.log("Что-то");
-                   }
-                   //Устанавливаю значение пустой клетки в той что был персонаж и новое значение
-                   Scene.setcageinfo(Scene.yposper,Scene.xposper-1,1)
-                   console.log("Новая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper-1));
-                   Scene.setcageinfo(Scene.yposper,Scene.xposper,9);
-                   console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
-
-                   xVelocity--;
-                   Scene.xposper--;
+                    gotoLeft();
                    break
                case Qt.Key_Right:
-                   //console.log(Scene.xposper+1,Scene.yposper);
-                 // console.log("Вариант обратный"+Scene.getcageinfo(Scene.yposper,Scene.xposper-1));
-                   r.jumpTo("right")
-                   switch (Scene.getcageinfo(Scene.yposper,Scene.xposper+1)){
-                   case 2 :
-                       console.log("Коробка");
-                       return
-                        break
-                   case 3 :
-                       console.log("Коробка и дверь");
-                       return
-                        break
-                   case 4 :
-                       console.log("Стена");
-                       return
-                        break
-                   }
-                   //Устанавливаю значение пустой клетки в той что был персонаж и новое значение
-                   Scene.setcageinfo(Scene.yposper,Scene.xposper+1,1)
-                   //console.log("Новая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper+1));
-                   Scene.setcageinfo(Scene.yposper,Scene.xposper,9);
-                   //console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
-                   xVelocity++;
-                   Scene.xposper++;
+                   gotoRight();
                    break
                case Qt.Key_Down:
-                    console.log(Scene.xposper,Scene.yposper+1);
-                    r.jumpTo("down")
-                   switch (Scene.getcageinfo(Scene.yposper+1,Scene.xposper)){
-                   case 2 :
-                       console.log("Коробка");
-                       return
-                        break
-                   case 3 :
-                       console.log("Коробка и дверь");
-                       return
-                        break
-                   case 4 :
-                       console.log("Стена");
-                       return
-                        break
-                   }
-                   //Устанавливаю значение пустой клетки в той что был персонаж и новое значение
-                   Scene.setcageinfo(Scene.yposper+1,Scene.xposper,1)
-                   console.log("Новая клетка:"+Scene.getcageinfo(Scene.yposper+1,Scene.xposper));
-                   Scene.setcageinfo(Scene.yposper,Scene.xposper,9);
-                   console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
-                   yVelocity++;
-                   Scene.yposper++;
+                   gotoDown();
                    break
                case Qt.Key_Up:
-                    console.log(Scene.xposper,Scene.yposper-1);
-                   r.jumpTo("up")
-                   switch (Scene.getcageinfo(Scene.yposper-1,Scene.xposper)){
-                   case 2 :
-                       console.log("Коробка");
-                       return
-                        break
-                   case 3 :
-                       console.log("Коробка и дверь");
-                       return
-                        break
-                   case 4 :
-                       console.log("Стена");
-                       return
-                        break
-                   }
-                   Scene.setcageinfo(Scene.yposper-1,Scene.xposper,1)
-                   console.log("Новая клетка:"+Scene.getcageinfo(Scene.yposper-1,Scene.xposper));
-                   Scene.setcageinfo(Scene.yposper,Scene.xposper,9);
-                   console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
-                   yVelocity--;
-                   Scene.yposper--;
+                   gotoUp();
                    break
                }
     }
 
     Keys.onReleased: {
-        xVelocity = 0;
-        yVelocity = 0;
-        r.jumpTo("rest")
+        rest();
+//        xVelocity = 0;
+//        yVelocity = 0;
+//        r.jumpTo("rest")
+
 //        if (event.isAutoRepeat) {
 //            return
 //        }
