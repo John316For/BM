@@ -65,6 +65,7 @@ Item {
         // устанавливаем в массиве на месте марио пустую ячейку
         Scene.setcageinfo(Scene.getMarioxpos(), Scene.getMarioypos(), freeCage)
         console.log("kill")
+        enemyTimer.stop()
     }
 
     //Функция уменьшения жизни
@@ -82,7 +83,9 @@ Item {
     //Функции хода персонажа
     function gotoLeft() {
 
-        //console.log("Вариант обратный" + Scene.getcageinfo(Scene.yposper,Scene.xposper - 1));
+        //console.log("Вариант куда я хочу двигаться"+Scene.getcageinfo(Scene.xposper-1,Scene.yposper));
+        console.log("Вариант обратный" + Scene.getcageinfo(Scene.yposper,
+                                                           Scene.xposper - 1))
         r.jumpTo("left")
         switch (Scene.getcageinfo(Scene.yposper, Scene.xposper - 1)) {
         case 2:
@@ -109,9 +112,10 @@ Item {
         //                                                 Scene.xposper))
 
         xVelocity--;
-        console.log("OLD_xposper:"+Scene.xposper);
         Scene.xposper--;
-        console.log("NEW_yposper:"+Scene.xposper);
+        //air
+        bomb.x1 = Scene.xposper
+        bomb.y1 = Scene.yposper
     }
 
     function gotoRight() {
@@ -137,9 +141,10 @@ Item {
         Scene.setcageinfo(Scene.yposper, Scene.xposper, 9)
         //console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
         xVelocity++;
-        console.log("OLD_xpoxper:"+Scene.xposper)
         Scene.xposper++;
-         console.log("NEW_xposper:"+Scene.xposper)
+        //air
+        bomb.x1 = Scene.xposper
+        bomb.y1 = Scene.yposper
     }
 
     function gotoUp() {
@@ -164,9 +169,10 @@ Item {
         Scene.setcageinfo(Scene.yposper, Scene.xposper, 9)
         //console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
         yVelocity--
-        console.log("OLD:"+Scene.yposper)
-        Scene.yposper--;
-        console.log("NEW:"+Scene.yposper)
+        Scene.yposper--
+        //air
+        bomb.x1 = Scene.xposper
+        bomb.y1 = Scene.yposper
     }
 
     function gotoDown() {
@@ -192,9 +198,10 @@ Item {
         Scene.setcageinfo(Scene.yposper, Scene.xposper, 9)
         //console.log("Старая клетка:"+Scene.getcageinfo(Scene.yposper,Scene.xposper));
         yVelocity++;
-         console.log("OLD:"+Scene.yposper)
         Scene.yposper++;
-        console.log("NEW:"+Scene.yposper)
+        //air
+        bomb.x1 = Scene.xposper
+        bomb.y1 = Scene.yposper
     }
     function rest() {
         xVelocity = 0;

@@ -10,7 +10,8 @@ var scenelevelone = [[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
                      [4, 2, 2, 2, 9, 9, 13, 9, 9, 2, 9, 9, 9, 2, 9, 2, 9, 5, 4],
                      [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]]
 
-var cagesize = 55
+var cagesize = 65
+//mario
 var xposper = 9
 var yposper = 1
 // n
@@ -27,7 +28,13 @@ function getMarioxpos() {
 function getMarioypos() {
     return yposper
 }
-//nat
+
+function setMarioxpos(x) {
+    xposper = x
+}
+function setMarioypos(y) {
+    yposper = y
+}
 function getBombX() {
     return bombX
 }
@@ -48,7 +55,7 @@ function setBombZ(z) {
 }
 
 //Обработка взвыва бомбы
-var freeCage = 9
+/*var freeCage = 9
 function killMario() {
     // задевает ли она марио
     if (bombX == xposper || bombX == xposper - 1 || bombX == xposper + 1) {
@@ -91,7 +98,7 @@ function detonate() {
         console.log("crush ",bombX - 1,bombY)
     }
     return amountCrashedBoxes
-}
+}*/
 //====================================
 //Функция установки значения в клетку
 //====================================

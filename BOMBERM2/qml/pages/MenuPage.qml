@@ -70,12 +70,11 @@ Page {
                 opacity: 1
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: {
-                    console.log("new game");
-                   // Field.generatefield();
+                    onClicked: console.log("new game")
                     pageStack.push(Qt.resolvedUrl("FieldPage.qml"))
                 }
             }
-            Button {
+            /*Button {
                 text: "продолжить"
                 color: "blue"
                 highlightBackgroundColor: "blue"
@@ -83,9 +82,9 @@ Page {
                 opacity: 1
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("FieldPage.qml"))
+
                 }
-            }
+            }*/
         }
     }
 }

@@ -89,21 +89,17 @@ QtObject {
                     enemies.push(enn)
                     break
                 case 11:
-                    var x = i * Scene.cagesize
-                    var y = j * Scene.cagesize
-//                    var x = j * Scene.cagesize
-//                    var y = i * Scene.cagesize
+                    var x = j * Scene.cagesize
+                    var y = i * Scene.cagesize
                     var enn = enemy1component.createObject(gameBoard, {
                                                                x: x,
                                                                y: y,
                                                                z: 4
                                                            })
                     enemies.push(enn)
-                   // Scene.setcageinfo(j, i, 10)
-                    Scene.setcageinfo(i, j, 10)
+                    Scene.setcageinfo(j, i, 10)
                     break
                 case 12:
-
                     var x = j * Scene.cagesize
                     var y = i * Scene.cagesize
                     var enn = enemy2component.createObject(gameBoard, {
@@ -112,11 +108,9 @@ QtObject {
                                                                z: 4
                                                            })
                     enemies.push(enn)
-                    Scene.setcageinfo(i, j, 10)
-                    //Scene.setcageinfo(j, i, 10)
+                    Scene.setcageinfo(j, i, 10)
                     break
                 case 13:
-
                     var x = j * Scene.cagesize
                     var y = i * Scene.cagesize
                     var enn = enemy3component.createObject(gameBoard, {
@@ -125,8 +119,7 @@ QtObject {
                                                                z: 4
                                                            })
                     enemies.push(enn)
-                    Scene.setcageinfo(i, j, 10)
-                    //Scene.setcageinfo(j, i, 10)
+                    Scene.setcageinfo(j, i, 10)
                     break
                 }
             }
@@ -155,6 +148,17 @@ QtObject {
     //6 - бомба;
     //7 - взрывная волна;
     //8 - дверь;
+
+    /*!
+         * Отслеживает коллизии и модифицирует состояния
+              * неигровых объектов соответственно
+                   * На вход функция получает координаты игрового персонажа
+                        */
+    function processCollisions(x, y) {}
+
+    function killMario(){
+        return Scene.killMario()
+    }
 
     function enemyMove(a) {
 
@@ -201,7 +205,7 @@ QtObject {
                 Scene.enposX[a]++
                 Scene.setcageinfo(Scene.enposY[a], Scene.enposX[a], 10)
 
-                //console.log("we moved right and x is now " + Scene.enposX[a])
+                console.log("we moved right and x is now " + Scene.enposX[a])
             }
             break
         case 1:
@@ -239,7 +243,7 @@ QtObject {
                 Scene.setcageinfo(Scene.enposY[a], Scene.enposX[a], 9)
                 Scene.enposX[a]--
                 Scene.setcageinfo(Scene.enposY[a], Scene.enposX[a], 10)
-                //console.log("we moved left and x is now " + Scene.enposX[a])
+                console.log("we moved left and x is now " + Scene.enposX[a])
             }
             break
         case 2:
@@ -317,7 +321,7 @@ QtObject {
                 Scene.setcageinfo(Scene.enposY[a], Scene.enposX[a], 9)
                 Scene.enposY[a]--
                 Scene.setcageinfo(Scene.enposY[a], Scene.enposX[a], 10)
-                //console.log("we moved up and y is now " + Scene.enposY[a])
+                console.log("we moved up and y is now " + Scene.enposY[a])
             }
             break
         }
