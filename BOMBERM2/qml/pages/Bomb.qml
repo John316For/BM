@@ -41,22 +41,6 @@ Item {
     //property int amountCrashedBoxes: 0
     property int freeCage: 9
 
-    Timer {
-        id: boomTimer
-        interval:500
-        running:false
-        triggeredOnStart: false
-        repeat: false
-        onTriggered: {
-            console.log("BUUUM CLOSE");
-            boom1.visible = false
-            boom2.visible = false
-            boom3.visible = false
-            boom4.visible = false
-            console.log("BUUUM CLOSE_END");
-        }
-    }
-
 
 
     /*Timer {
@@ -107,10 +91,12 @@ Item {
         onTriggered: {
             //bomb.visible = false
             console.log("BUUM bomb")
-            boom1.visible = "true";
-            boom2.visible = "true";
-            boom3.visible = "true";
-            boom4.visible = "true";
+            boom1.visible = true;
+            boom2.visible = true;
+            boom3.visible = true;
+            boom4.visible = true;
+            boomTimer.start();
+            b.visible = false
             //проверка, задело ли марио
             if(killMario()){
                 mario.lesslife();
@@ -124,11 +110,27 @@ Item {
                 fieldMeneger.refreshField(Scene.getBombX(),Scene.getBombY())
                 console.log("REFRESH ", Scene.getBombX(), " ", Scene.getBombY());
             }
-            boomTimer.start();
-            b.visible = false
+
             Scene.setcageinfo(Scene.setBombX(),Scene.getBombY(),freeCage)
         }
     }
+
+    Timer {
+        id: boomTimer
+        interval:500
+        running:false
+        triggeredOnStart: false
+        repeat: false
+        onTriggered: {
+            console.log("BUUUM CLOSE");
+            boom1.visible = false;
+            boom2.visible = false;
+            boom3.visible = false;
+            boom4.visible = false;
+            console.log("BUUUM CLOSE_END");
+        }
+    }
+
 
     // взаимодействие с бомбой
 
