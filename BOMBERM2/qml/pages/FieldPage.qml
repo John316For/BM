@@ -34,7 +34,12 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                     //console.log("set bomb")
+                    bomb.x = Scene.xposper;
+                    bomb.y = Scene.yposper;
+
                     bomb.setBomb()
+                    console.log("BOMB X^ "+ bomb.x);
+                    console.log("BOMB Y^ "+ bomb.y);
                     console.log("set bomb call")
                 }
             }

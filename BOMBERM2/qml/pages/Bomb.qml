@@ -6,6 +6,8 @@ Item {
     width: Scene.cagesize
     height: Scene.cagesize
     visible: false
+    x: Scene.xposper*Scene.cagesize
+    y: Scene.yposper*Scene.cagesize
     SpriteSequence {
         id: bomb
         width: Scene.cagesize
@@ -21,14 +23,20 @@ Item {
     property int bombN: 6
     function setBomb(){
         // запись позициибомбы в массив
-        Scene.setcageinfo(Scene.getMarioxpos(),Scene.getMarioypos()+1,bombN)
-        Scene.setBombX(Scene.getMarioxpos())
-        Scene.setBombY(Scene.getMarioypos()+1)
+
+        //Scene.setcageinfo(Scene.getMarioxpos(),Scene.getMarioypos()+1,bombN)
+        //Scene.setBombX(Scene.getMarioxpos())
+       // Scene.setBombY(Scene.getMarioypos())
+        Scene.setBombX(Scene.xposper)
+        Scene.setBombY(Scene.yposper)
         Scene.setBombZ(2)
         // отображнеие бомбы на поле
-        b.x = Scene.getBombX() * Scene.cagesize
-        b.y = Scene.getBombY() * Scene.cagesize
-        b.z = Scene.getBombZ()
+        //b.x = Scene.getBombX() * Scene.cagesize
+        //b.y = Scene.getBombY() * Scene.cagesize
+        //b.z = Scene.getBombZ()
+        b.x = Scene.xposper*Scene.cagesize
+        b.y = Scene.yposper*Scene.cagesize
+        b.z = 2
         b.visible = "true";
         // взрыв бомбы после таймера
         detonateTimer.start()

@@ -40,7 +40,6 @@ TRANSLATIONS += translations/BOMBERM-de.ts
 
 DISTFILES += \
     qml/pages/Scene.js \
-    qml/pages/Actor.qml \
     qml/pages/Box.qml \
     qml/pages/Field.qml \
     qml/pages/FieldPage.qml \
@@ -54,7 +53,6 @@ DISTFILES += \
     qml/pages/image/pause.jpg \
     qml/pages/image/0fgj.jpg \
     qml/pages/Enemy.qml \
-    qml/pages/Mario1.qml \
     qml/pages/Enemy1.qml \
     qml/pages/Enemy2.qml \
     qml/pages/Enemy3.qml \
